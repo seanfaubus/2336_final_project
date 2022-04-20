@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Ooops...</title>
+        <title>Form Submitted</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="https://sfaubus.heyuhnem.com/assets/frogo.png" />
+        <link rel="icon" type="image/x-icon" href="https://sfaubus.heyuhnem.com/assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -45,7 +45,72 @@
                 <!-- Masthead Avatar Image-->
                 <!-- <img class="masthead-avatar mb-5" src="https://sfaubus.heyuhnem.com/assets/img/Face2.png" alt="..." /> -->
                 <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">Oops...</h1>
+                <?php
+  
+if($_POST) {
+    $visitor_name = "";
+    $visitor_email = "";
+    $visitor_phone = $_POST['visitor_phone'];
+    $date_visited = $_POST['date_visited'];
+    $time_visited = $_POST['time_visited'];
+    $messagelab7 = "";
+    $subject = "Faubus Contact Page";
+    $email_body = "<div>";
+      
+    if(isset($_POST['visitor_name'])) {
+        $visitor_name = filter_var($_POST['visitor_name'], FILTER_SANITIZE_STRING);
+        $email_body .= "<div>
+                           <label><b>Visitor Name:</b></label>&nbsp;<span>".$visitor_name."</span>
+                        </div>";
+    }
+ 
+    if(isset($_POST['visitor_email'])) {
+        $visitor_email = str_replace(array("\r", "\n", "%0a", "%0d"), '', $_POST['visitor_email']);
+        $visitor_email = filter_var($visitor_email, FILTER_VALIDATE_EMAIL);
+        $email_body .= "<div>
+                           <label><b>Visitor Email:</b></label>&nbsp;<span>".$visitor_email."</span>
+                        </div>";
+    }
+      
+
+    $email_body .= "<div>
+                    <label><b>Visitor Phone:</b></label>&nbsp;<span>".$visitor_phone."</span>
+                    </div>";
+
+    $email_body .= "<div>
+                    <label><b>Date Visited:</b></label>&nbsp;<span>".$date_visited."</span>
+                    </div>";
+
+    $email_body .= "<div>
+                    <label><b>Time Visited:</b></label>&nbsp;<span>".$time_visited."</span>
+                    </div>";
+    
+    if(isset($_POST['messagelab7'])) {
+        $messagelab7 = htmlspecialchars($_POST['messagelab7']);
+        $email_body .= "<div>
+                            <label><b>Visitor Message:</b></label>
+                            <div>".$messagelab7."</div>
+                        </div>";
+    }
+    
+    $recipient = "seanfaubus@gmail.com";
+      
+    $email_body .= "</div>";
+ 
+    $headers  = 'MIME-Version: 1.0' . "\r\n"
+    .'Content-type: text/html; charset=utf-8' . "\r\n"
+    .'From: ' . $visitor_email . "\r\n";
+      
+    if(mail($recipient, $subject, $email_body, $headers)) {
+        echo "<p>Thank you for contacting me, $visitor_name. I have received your feedback!</p>";
+    } else {
+        echo '<p>We are sorry but the email did not go through.</p>';
+    }
+      
+} else {
+    echo '<p>Something went wrong</p>';
+}
+?>
                 <!-- Icon Divider-->
           
                 
@@ -110,3 +175,7 @@
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>
+
+
+
+

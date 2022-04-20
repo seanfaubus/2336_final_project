@@ -7,7 +7,7 @@
         <meta name="author" content="" />
         <title>Sean Faubus - Photos</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="https://sfaubus.heyuhnem.com/assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="https://sfaubus.heyuhnem.com/assets/frogo.png" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -45,7 +45,7 @@
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="https://sfaubus.heyuhnem.com/assets/img/Face2.png" alt="..." />
+                
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading text-uppercase mb-0">Photo Gallery</h1>
                 <!-- Icon Divider-->
@@ -55,64 +55,95 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Masthead Subheading-->
-                <div class="masthead-subheading font-weight-light mb-0"><p class="lead">Welcome</p>
+                <div class="masthead-subheading font-weight-light mb-0"><p class="lead">Here are a few pictures
+                    that show off my beautiful family. Plus a bonus picture showing me about to board an 
+                    Osprey before a jump op back in my Marine Corps days. Enjoy! I made this by writing a JavaScript
+                    function that displays and enlarges whichever image you click. It also displays the caption for
+                    the corresponding image. I think it looks great, hope you do too!
+                </p>
 				</div>
             </div>
         </header>
         <!-- Date and Time-->
-        <section class="page-section portfolio" id="portfolio">
-            <div class="containerForGallery">
-               <!-- Portfolio Section Heading -->
-                <h6 class="page-section-heading text-center text-uppercase text-secondary mb-0">Photo Gallery</h6>
-				<br>
-                <!-- Icon Divider-->
-                <!-- <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div> -->
-                <!-- Portfolio Grid Items-->
-                <div class="row justify-content-center">
-                    <!-- Portfolio Item 1-->
-                    <!-- Portfolio Item 2-->
+        <section class="photoSection" id="portfolio">
+            <h2 id="photoH2">Click on a picture to enlarge it.</h2>
+            
                     
-					<div class="rowGallery">
-                        <div class="columnGallery">
-                          <img src="https://sfaubus.heyuhnem.com/assets/img/catawba.png" alt="My family" style="width:100%" onclick="myFunction(this);">
-                        </div>
-                        <div class="columnGallery">
-                          <img src="https://sfaubus.heyuhnem.com/assets/img/lucyTheBrave.png" alt="Lucy the Brave" style="width:100%" onclick="myFunction(this);">
-                        </div>
-                        <div class="columnGallery">
-                          <img src="https://sfaubus.heyuhnem.com/assets/img/nTopsail.png" alt="Lucy and I at the beach" style="width:100%" onclick="myFunction(this);">
-                        </div>
-                        <div class="columnGallery">
-                          <img src="https://sfaubus.heyuhnem.com/assets/img/para.png" alt="Airborne!" style="width:100%" onclick="myFunction(this);">
-                        </div>
-                      </div>
-                      
-                      <div class="containerGallery">
-                        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
-                        <img id="expandedImg" style="width:50%">
-                        <div id="imgtext"></div>
-                      </div>
-					
-					<script>
-                        function myFunction(imgs) {
-                            var expandImg = document.getElementById("expandedImg");
-                            var imgText = document.getElementById("imgtext");
-                            expandImg.src = imgs.src;
-                            imgText.innerHTML = imgs.alt;
-                            expandImg.parentElement.style.display = "block";
-                        }
-					</script>
-					
-                    <!-- Portfolio Item 3-->
-                    
-                    <!-- Portfolio Item 4-->
-                    
+            <div class="containerGallery">
+                <div class="mySlides">
+                  <div class="numbertext">1 / 4</div>
+                  <img src="https://sfaubus.heyuhnem.com/assets/img/catawba.png" class="photoIMG" alt="My family" style="width:100%">
                 </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">2 / 4</div>
+                    <img src="https://sfaubus.heyuhnem.com/assets/img/lucyTheBrave.png" class="photoIMG" alt="Lucy the Brave" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">3 / 4</div>
+                    <img src="https://sfaubus.heyuhnem.com/assets/img/nTopsail.png" class="photoIMG" alt="Lucy and I at the beach" style="width:100%">
+                  </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">4 / 4</div>
+                    <img src="https://sfaubus.heyuhnem.com/assets/img/para.png" class="photoIMG" alt="Airborne!" style="width:100%">
+                </div>
+                          
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>     
+
+                <div class="caption-container">
+                    <p id="caption"></p>
+                </div>
+
+                <div class="rowGallery">
+                    <div class="columnGallery">
+                      <img class="demoGallery cursor" src="https://sfaubus.heyuhnem.com/assets/img/catawba.png" style="width:100%" onclick="currentSlide(1)" alt="My family">
+                    </div>
+                    <div class="columnGallery">
+                      <img class="demoGallery cursor" src="https://sfaubus.heyuhnem.com/assets/img/lucyTheBrave.png" style="width:100%" onclick="currentSlide(2)" alt="Lucy the Brave">
+                    </div>
+                    <div class="columnGallery">
+                      <img class="demoGallery cursor" src="https://sfaubus.heyuhnem.com/assets/img/nTopsail.png" style="width:100%" onclick="currentSlide(3)" alt="Lucy and I at the beach">
+                    </div>
+                    <div class="columnGallery">
+                      <img class="demoGallery cursor" src="https://sfaubus.heyuhnem.com/assets/img/para.png" style="width:100%" onclick="currentSlide(4)" alt="Airborne!">
+                    </div>
+                </div>
+
             </div>
+            <script>
+                let slideIndex = 1;
+                showSlides(slideIndex);
+
+                function plusSlides(n) {
+                    showSlides(slideIndex += n);
+                }
+
+                function currentSlide(n) {
+                    showSlides(slideIndex = n);
+                }
+
+                function showSlides(n) {
+                    let i;
+                    let slides = document.getElementsByClassName("mySlides");
+                    let dots = document.getElementsByClassName("demoGallery");
+                    let captionText = document.getElementById("caption")
+                    if (n > slides.length) {slideIndex = 1}
+                    if (n < 1) {slideIndex = slides.length}
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                    }
+                    slides[slideIndex - 1].style.display = "block";
+                    dots[slideIndex - 1].className += "active";
+                    captionText.innerHTML = dots[slideIndex-1].alt;
+                }
+            </script>
+            
         </section>
         <!-- About Section-->
         <section class="page-section bg-primary text-white mb-0" id="about">
