@@ -45,7 +45,7 @@
                 <!-- Masthead Avatar Image-->
                 <!-- <img class="masthead-avatar mb-5" src="https://sfaubus.heyuhnem.com/assets/img/Face2.png" alt="..." /> -->
                 <!-- Masthead Heading-->
-                <?php
+<?php
   
 if($_POST) {
     $visitor_name = "";
@@ -93,7 +93,7 @@ if($_POST) {
                         </div>";
     }
     
-    $recipient = "seanfaubus@gmail.com";
+    $recipient = "skrana2@uh.edu";
       
     $email_body .= "</div>";
  
